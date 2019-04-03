@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Role;
 use App\User;
 use Validator;
 use App\Http\Controllers\Controller;
@@ -28,7 +29,7 @@ class AuthController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/';
+    protected $redirectTo = '/admin';
 
     /**
      * Create a new authentication controller instance.
@@ -63,9 +64,12 @@ class AuthController extends Controller
      */
     protected function create(array $data)
     {
+        $defaultRoleId = Role::where('name', '=', 'subscriber')->value('id');
+
         return User::create([
+            'role_id' => $defaultRoleId,
             'name' => $data['name'],
-            'email' => $data['email'],
+            'email' => strtolower($data['email']),
             'password' => bcrypt($data['password']),
         ]);
     }

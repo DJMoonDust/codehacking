@@ -10,6 +10,7 @@ use App\User;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use Illuminate\Support\Facades\Session;
 
 class AdminUsersController extends Controller
 {
@@ -36,7 +37,7 @@ class AdminUsersController extends Controller
     {
         //
 
-       $roles = Role::lists('name', 'id')->all();
+        $roles = Role::lists('name', 'id')->all();
         return view('admin.users.create', compact('roles'));
 
     }
@@ -63,8 +64,10 @@ class AdminUsersController extends Controller
 
         };
 
-        User::create($input);
+        $input['email'] = strtolower($request->email);
 
+        User::create($input);
+        Session::flash('created_user', 'The user has been created!');
         return redirect('/admin/users');
 
     }
@@ -111,20 +114,24 @@ class AdminUsersController extends Controller
     {
         //
 
+        $user = User::findOrFail($id);
+
         if(trim($request->password) == ''){
 
             $input = $request->except('password');
-
         } else{
 
             $input = $request->all();
             $input['password'] = bcrypt($request->password);
-
         }
 
-        $user = User::findOrFail($id);
+        $input['email'] = strtolower($request->email);
 
         if($file = $request->file('photo_id')){
+
+            if($user->photo){
+                unlink(public_path() . $user->photo->file);
+            }
 
             $name = time() . $file->getClientOriginalName();
             $file->move('images', $name);
@@ -133,7 +140,7 @@ class AdminUsersController extends Controller
         }
 
         $user->update($input);
-
+        Session::flash('updated_user', 'User information has been updated!');
         return redirect('/admin/users');
 
     }
@@ -147,5 +154,11 @@ class AdminUsersController extends Controller
     public function destroy($id)
     {
         //
+
+        $user = User::findOrFail($id);
+        $user->delete();
+        Session::flash('deleted_user', 'The user has been deleted!');
+        return redirect('/admin/users');
+
     }
 }
