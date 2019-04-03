@@ -13,7 +13,10 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-    {{-- <link href="{{ elixir('css/app.css') }}" rel="stylesheet"> --}}
+
+    {{--<link href="{{asset('css/app.css')}}" rel="stylesheet">--}}
+    {{--<link href="{{asset('css/libs.css')}}" rel="stylesheet">--}}
+     {{--<link href="{{ elixir('css/app.css') }}" rel="stylesheet">--}}
 
     <style>
         body {
@@ -22,6 +25,10 @@
 
         .fa-btn {
             margin-right: 6px;
+        }
+
+        .dropdown-user {
+            padding: 5px;
         }
     </style>
 </head>
@@ -62,8 +69,12 @@
                                 {{ Auth::user()->name }} <span class="caret"></span>
                             </a>
 
-                            <ul class="dropdown-menu" role="menu">
-                                <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
+                            <ul class="dropdown-menu dropdown-user" role="menu">
+                                @if(Auth::user()->isAdmin())
+                                    <li><a href={{url("/admin")}}>Admin</a></li>
+                                @endif
+                                <li class="divider"></li>
+                                <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></liclass>
                             </ul>
                         </li>
                     @endif
