@@ -2,6 +2,24 @@
 
 @section('content')
 
+    @if(Session::has('created_category'))
+
+        <p class="alert alert-success"> {{ session('created_category') }} </p>
+
+    @endif
+
+    @if(Session::has('updated_category'))
+
+        <p class="alert alert-success"> {{ session('updated_category') }} </p>
+
+    @endif
+
+    @if(Session::has('deleted_category'))
+
+        <p class="alert alert-danger"> {{ session('deleted_category') }} </p>
+
+    @endif
+
     <h1>Categories</h1>
 
     <div class="col-sm-4">
@@ -36,7 +54,7 @@
                 @foreach($categories as $category)
                     <tr>
                         <td>{{ $category->id }}</td>
-                        <td>{{ $category->name }}</td>
+                        <td><a href="{{ route('admin.categories.edit', $category->id) }}">{{ $category->name }}</td>
                         <td>{{ $category->created_at ? $category->created_at->diffForHumans() : 'no date' }}</td>
                     </tr>
                 @endforeach

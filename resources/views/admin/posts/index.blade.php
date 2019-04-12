@@ -53,4 +53,8 @@
         </tbody>
     </table>
 
+    <div class="row">
+        <a href={{route("admin.posts.create")}} class="col-sm-2 btn btn-info btn-lg" >+ Add Post</a>
+    </div>
+
 @stop

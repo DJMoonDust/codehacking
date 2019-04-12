@@ -13,16 +13,20 @@
             {!! Form::text('name', null, ['class'=>'form-control']) !!}
         </div>
 
-        <div class="form-group">
+        <div class="form-group pull-left">
             {!! Form::submit('Update Category', ['class'=>'btn btn-primary']) !!}
         </div>
 
         {!! Form::close() !!}
 
-    </div>
 
-    <div class="col-sm-6">
+        {!! Form::model($category, ['method'=>'DELETE', 'action'=>['AdminCategoriesController@destroy', $category->id]]) !!}
 
+        <div class="form-group pull-right">
+            {!! Form::submit('Delete Category', ['class'=>'btn btn-danger']) !!}
+        </div>
+
+        {!! Form::close() !!}
 
 
     </div>
