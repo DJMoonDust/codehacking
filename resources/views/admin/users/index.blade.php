@@ -38,21 +38,24 @@
         <tbody>
         @if($users)
             @foreach($users as $user)
-            <tr>
-                <td>{{$user->id}}</td>
-                <td><img height="50px" src="{{$user->photo ? $user->photo->file : '/images/placeholder.png'}}" alt="User Photo"></td>
-                <td><a href="{{route('admin.users.edit', $user->id)}}">{{$user->name}}</a></td>
-                <td>{{$user->email}}</td>
-                <td>{{$user->role->name}}</td>
-                <td>{{$user->is_active == 1 ? 'Active' : 'Not Active'}}</td>
-                <td>{{$user->created_at->diffForHumans()}}</td>
-                <td>{{$user->updated_at->diffForHumans()}}</td>
-            </tr>
+                <tr class="{{ !$user->is_active ? 'text-muted' : '' }}">
+                    <td>{{ $user->id }}</td>
+                    <td><img height="50px" src="{{ $user->photo ? $user->photo->file : '/images/placeholder.png' }}" alt="User Photo"></td>
+                    <td><a class="{{ !$user->is_active ? 'text-muted' : '' }}" href="{{ route('admin.users.edit', $user->id) }}">{{ $user->name }}</a></td>
+                    <td>{{ $user->email }}</td>
+                    <td>{{ $user->role->name }}</td>
+                    <td>{{ $user->is_active == 1 ? 'Active' : 'Not Active' }}</td>
+                    <td>{{ $user->created_at->diffForHumans() }}</td>
+                    <td>{{ $user->updated_at->diffForHumans() }}</td>
+                </tr>
             @endforeach
         @endif
         </tbody>
     </table>
 
+    <div class="row">
+        <a href={{route("admin.users.create")}} class="col-sm-2 btn btn-info btn-lg" >+ Add User</a>
+    </div>
 
 
     @stop

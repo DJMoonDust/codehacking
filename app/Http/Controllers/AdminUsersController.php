@@ -67,6 +67,7 @@ class AdminUsersController extends Controller
         $input['email'] = strtolower($request->email);
 
         User::create($input);
+
         Session::flash('created_user', 'The user has been created!');
         return redirect('/admin/users');
 
@@ -140,6 +141,7 @@ class AdminUsersController extends Controller
         }
 
         $user->update($input);
+
         Session::flash('updated_user', 'User information has been updated!');
         return redirect('/admin/users');
 
@@ -156,7 +158,10 @@ class AdminUsersController extends Controller
         //
 
         $user = User::findOrFail($id);
+        unlink(public_path() . $user->photo->file);
         $user->delete();
+
+
         Session::flash('deleted_user', 'The user has been deleted!');
         return redirect('/admin/users');
 
