@@ -8,7 +8,7 @@
 
         <div class="col-sm-3">
 
-            <img src="{{ $post->photo->file }}" alt="" class="img-responsive img-rounded">
+            <img src="{{ $post->photo ? $post->photo->file :  '' }}" alt="" class="img-responsive img-rounded">
 
         </div>
 

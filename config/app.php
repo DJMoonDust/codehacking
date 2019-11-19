@@ -148,6 +148,10 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
+        Cviebrock\EloquentSluggable\ServiceProvider::class,
+   //     Cviebrock\EloquentSluggable\SluggableServiceProvider::class,
+  //      Cviebrock\EloquentSluggable\Sluggable::class,
+
 
         /*
          * Application Service Providers...

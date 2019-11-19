@@ -31,6 +31,8 @@
                 <th>Photo</th>
                 <th>Title</th>
                 <th>Body</th>
+                <th>Edit</th>
+                <th>Comments</th>
                 <th>Created At</th>
                 <th>Updated At</th>
             </tr>
@@ -43,8 +45,10 @@
                         <td><a href="{{route('admin.users.edit', $post->user->id)}}">{{ $post->user->name }}</a></td>
                         <td>{{ $post->category ? $post->category->name : 'Uncategorized' }}</td>
                         <td><img height="50px" src="{{ $post->photo ? $post->photo->file : '/images/placeholder3.jpg' }}"></td>
-                        <td><a href="{{ route('admin.posts.edit', $post->id) }}">{{ $post->title }}</a></td>
-                        <td>{{ str_limit($post->body, 35) }}</td>
+                        <td><a href="{{ route('home.post', $post->slug) }}">{{ $post->title }}</a></td>
+                        <td class="col-sm-4">{{ str_limit($post->body, 70) }}</td>
+                        <td class="col-sm-1"><a class="btn btn-info" href="{{ route('admin.posts.edit', $post->id) }}">Edit Post</td>
+                        <td>{{ $post->comments()->count() }} <a href="{{ route('admin.comments.show', $post->id) }}">View All</a></td>
                         <td>{{ $post->created_at->diffForhumans() }}</td>
                         <td>{{ $post->updated_at->diffForhumans() }}</td>
                     </tr>
@@ -54,7 +58,14 @@
     </table>
 
     <div class="row">
-        <a href={{route("admin.posts.create")}} class="col-sm-2 btn btn-info btn-lg" >+ Add Post</a>
+        <a class="col-sm-2 btn btn-primary btn-lg" href={{route("admin.posts.create")}}>+ Add Post</a>
     </div>
+
+    <div class="row">
+        <div class="col-sm-6 col-sm-offset-5">
+            {{$posts->render()}}
+        </div>
+    </div>
+
 
 @stop
