@@ -32,17 +32,24 @@ Route::group(['middleware'=>'admin'], function(){
         return view('admin.index');
     });
 
-    Route::resource('admin/users', 'AdminUsersController');
+    Route::resource('admin/users', 'AdminUsersController', ['names'=>[
 
-    Route::resource('admin/posts', 'AdminPostsController');
+        'index'=>'admin.users.index',
+        'create'=>'admin.users.create',
+        'store'=>'admin.users.store',
+        'edit'=>'admin.users.edit',
 
-    Route::resource('admin/categories', 'AdminCategoriesController');
+    ]]);
 
-    Route::resource('admin/media', 'AdminMediaController');
+    Route::resource('admin/posts', 'AdminPostsController', ['as' => 'admin']);
 
-    Route::resource('admin/comments', 'PostCommentsController');
+    Route::resource('admin/categories', 'AdminCategoriesController', ['as' => 'admin']);
 
-    Route::resource('admin/comment/replies', 'CommentRepliesController');
+    Route::resource('admin/media', 'AdminMediaController', ['as' => 'admin']);
+
+    Route::resource('admin/comments', 'PostCommentsController', ['as' => 'admin']);
+
+    Route::resource('admin/comment/replies', 'CommentRepliesController', ['as' => 'admin']);
 
 });
 

@@ -20,7 +20,7 @@
     <hr>
 
     <!-- Preview Image -->
-    <img class="img-responsive" src="{{$post->photo->file}}" alt="">
+    <img class="img-responsive" src="{{$post->photo->file or '/images/placeholder3.jpg'}}" alt="">
 
     <hr>
 

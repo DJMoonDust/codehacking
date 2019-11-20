@@ -3,23 +3,15 @@
 namespace App;
 
 use Cviebrock\EloquentSluggable\Sluggable;
+use Cviebrock\EloquentSluggable\SluggableScopeHelpers;
 use Illuminate\Database\Eloquent\Model;
-//use Cviebrock\EloquentSluggable\Services\SlugService;
-//use Cviebrock\EloquentSluggable\SluggableInterface;
-//use Cviebrock\EloquentSluggable\SluggableTrait;
 
-
-class Post extends Model //implements SluggableInterface
+class Post extends Model
 {
     //
 
     use Sluggable;
-
-//    Protected $sluggableold = [
-//        'source' => 'title',
-//        'saveTo' => 'slug',
-//        'onUpdate' => true,
-//    ];
+    use SluggableScopeHelpers;
 
     /**
      * Return the sluggable configuration array for this model.
@@ -30,8 +22,7 @@ class Post extends Model //implements SluggableInterface
     {
         return [
             'slug' => [
-                'source' => 'title',
-                'onUpdate' => true,
+                'source' => 'title'
             ]
         ];
     }

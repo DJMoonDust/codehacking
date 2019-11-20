@@ -74,7 +74,15 @@
                                     <li><a href={{url("/admin")}}>Admin</a></li>
                                 @endif
                                 <li class="divider"></li>
-                                <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></liclass>
+                                {{--<li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></liclass>--}}
+
+                                {!! Form::open(['method'=>'POST', 'action'=>'Auth\LoginController@logout']) !!}
+
+                                <div class="form-group">
+                                    {!! Form::submit('Logout', ['class'=>'btn btn-active']) !!}
+                                </div>
+
+                                {!! Form::close() !!}
                             </ul>
                         </li>
                     @endif

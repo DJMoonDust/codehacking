@@ -40,6 +40,7 @@ class CommentRepliesController extends Controller
     public function store(Request $request)
     {
         //
+
     }
 
     /**
