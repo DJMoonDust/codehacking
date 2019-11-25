@@ -1,13 +1,21 @@
 #admin-page {
-  padding-top: 0px; }
+  padding-top: 0px;
+}
 
 .mt-1 {
-  margin-top: 1em; }
+  margin-top: 1em;
+}
 
 #nested-comment {
-  margin-top: 60px; }
+  margin-top: 60px;
+}
 
 .comment-reply {
-  display: none; }
+  display: none;
+}
 
-/*# sourceMappingURL=app.css.map */
+body {
+  background: #204d74;
+}
+
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiQzpcXHhhbXBwN18xXFxodGRvY3NcXGNvZGVoYWNraW5nXFxyZXNvdXJjZXNcXGFzc2V0c1xcc2Fzc1xcYXBwLnNjc3MiLCJzb3VyY2VzIjpbIi94YW1wcDdfMS9odGRvY3MvY29kZWhhY2tpbmcvcmVzb3VyY2VzL2Fzc2V0cy9zYXNzL2FwcC5zY3NzIl0sInNvdXJjZXNDb250ZW50IjpbIi8vIEBpbXBvcnQgXCJub2RlX21vZHVsZXMvYm9vdHN0cmFwLXNhc3MvYXNzZXRzL3N0eWxlc2hlZXRzL2Jvb3RzdHJhcFwiO1xuXG4jYWRtaW4tcGFnZSB7XG4gIHBhZGRpbmctdG9wOiAwcHg7XG59XG5cbi5tdC0xIHtcbiAgbWFyZ2luLXRvcDogMWVtO1xufVxuXG4jbmVzdGVkLWNvbW1lbnR7XG4gIG1hcmdpbi10b3A6IDYwcHg7XG59XG5cbi5jb21tZW50LXJlcGx5IHtcbiAgZGlzcGxheTogbm9uZTtcbn1cblxuYm9keSB7XG5cbiAgLy9iYWNrZ3JvdW5kOiAjM2QzZDNiO1xuICBiYWNrZ3JvdW5kOiAjMjA0ZDc0O1xufSJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFFQSxBQUFBLFdBQVcsQ0FBQztFQUNWLFdBQVcsRUFBRSxHQUFHO0NBQ2pCOztBQUVELEFBQUEsS0FBSyxDQUFDO0VBQ0osVUFBVSxFQUFFLEdBQUc7Q0FDaEI7O0FBRUQsQUFBQSxlQUFlLENBQUE7RUFDYixVQUFVLEVBQUUsSUFBSTtDQUNqQjs7QUFFRCxBQUFBLGNBQWMsQ0FBQztFQUNiLE9BQU8sRUFBRSxJQUFJO0NBQ2Q7O0FBRUQsQUFBQSxJQUFJLENBQUM7RUFHSCxVQUFVLEVBQUUsT0FBTztDQUNwQiJ9 */
