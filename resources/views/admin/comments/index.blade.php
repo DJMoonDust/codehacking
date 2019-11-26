@@ -30,7 +30,7 @@
                     <td>{{$comment->email}}</td>
                     <td>{{$comment->body}}</td>
                     <td><a href="{{ route('home.post', $comment->post->id) }}">View Post</a></td>
-                    <td><a href="{{route('admin.comment.replies.show', $comment->id)}}">View Replies</a></td>
+                    <td><a href="{{route('admin.comments.replies.show', $comment->id)}}">View Replies</a></td>
                     <td class="col-sm-1">
                         @if($comment->is_active == 1)
 

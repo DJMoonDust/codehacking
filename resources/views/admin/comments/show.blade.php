@@ -10,15 +10,15 @@
 
         <table class="table">
             <thead>
-            <tr>
-                <th>Id</th>
-                <th>Author</th>
-                <th>Email</th>
-                <th>Body</th>
-                <th>Link</th>
-                <th>Status</th>
-                <th>Remove</th>
-            </tr>
+                <tr>
+                    <th>Id</th>
+                    <th>Author</th>
+                    <th>Email</th>
+                    <th>Body</th>
+                    <th>Link</th>
+                    <th>Status</th>
+                    <th>Remove</th>
+                </tr>
             </thead>
             <tbody>
 

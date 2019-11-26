@@ -60,4 +60,11 @@ class Post extends Model
 
     }
 
+
+    public function photoPlaceholder(){
+
+        return "/images/placeholder3.jpg";
+
+    }
+
 }
